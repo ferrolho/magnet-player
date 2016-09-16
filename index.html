@@ -2,22 +2,60 @@
 layout: default
 ---
 
+<div style="width: 64px;">
+	<img src="{{ site.baseurl }}/assets/popcorn.svg" alt="Instant Popcorn icon">
+</div>
+
 <div class="home">
 
-  <h1 class="page-heading">Posts</h1>
+	<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/webtorrent.css">
 
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+	<form>
+		<label for="torrentId">Download from a magnet link: </label>
+		<input name="torrentId", placeholder="magnet:" value="magnet:?xt=urn:btih:6a9759bffd5c0af65319979fb7832189f4f3c35d&dn=sintel.mp4&tr=wss%3A%2F%2Ftracker.btorrent.xyz&tr=wss%3A%2F%2Ftracker.fastcast.nz&tr=wss%3A%2F%2Ftracker.openwebtorrent.com&tr=wss%3A%2F%2Ftracker.webtorrent.io&ws=https%3A%2F%2Fwebtorrent.io%2Ftorrents%2Fsintel-1024-surround.mp4">
+		<button type="submit">Download</button>
+	</form>
 
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
+	<h2>Log</h2>
+	<div class="log"></div>
 
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
 
+
+	<div id="hero">
+		<div id="output">
+			<div id="progressBar"></div>
+			<!-- The video player will be added here -->
+		</div>
+		<!-- Statistics -->
+		<div id="status">
+			<div>
+				<span class="show-leech">Downloading </span>
+				<span class="show-seed">Seeding </span>
+				<code>
+					<!-- Informative link to the torrent file -->
+					<a id="torrentLink" href="https://webtorrent.io/torrents/sintel.torrent">sintel.torrent</a>
+				</code>
+				<span class="show-leech"> from </span>
+				<span class="show-seed"> to </span>
+				<code id="numPeers">0 peers</code>.
+			</div>
+			<div>
+				<code id="downloaded"></code>
+				of <code id="total"></code>
+				— <span id="remaining"></span><br/>
+				&#x2198;<code id="downloadSpeed">0 b/s</code>
+				/ &#x2197;<code id="uploadSpeed">0 b/s</code>
+			</div>
+		</div>
+	</div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+
+<!-- Include the latest version of WebTorrent -->
+<script src="https://cdn.jsdelivr.net/webtorrent/latest/webtorrent.min.js"></script>
+
+<!-- Moment is used to show human readable remaining time -->
+<script src="http://momentjs.com/downloads/moment.min.js"></script>
+
+<script src="{{ site.baseurl }}/js/webtorrent.js"></script>
