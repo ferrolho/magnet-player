@@ -31,10 +31,16 @@ body {
  * Set `margin-bottom` to maintain vertical rhythm
  */
 h1, h2, h3, h4, h5, h6,
-p, blockquote, pre,
+p, blockquote, pre, hr,
 ul, ol, dl, figure,
 %vertical-rhythm {
     margin-bottom: $spacing-unit / 2;
+}
+
+hr {
+    border: 0;
+    height: 2px;
+    background-image: linear-gradient(to right, rgba(51, 77, 92, 0), rgba(51, 77, 92, 0.75), rgba(51, 77, 92, 0));
 }
 
 
@@ -110,8 +116,8 @@ a {
  * Blockquotes
  */
 blockquote {
-    color: $grey-color;
-    border-left: 4px solid $grey-color-light;
+    color: $blue;
+    border-left: 4px solid $blue;
     padding-left: $spacing-unit / 2;
     font-size: 18px;
     letter-spacing: -1px;
@@ -130,7 +136,7 @@ blockquote {
 pre,
 code {
     font-size: 15px;
-    border: 1px solid $grey-color-light;
+    border: 1px solid $blue;
     border-radius: 3px;
     background-color: #eef;
 }
@@ -193,6 +199,6 @@ pre {
     vertical-align: middle;
 
     path {
-        fill: $grey-color;
+        fill: $blue;
     }
 }

@@ -2,50 +2,51 @@
 layout: default
 ---
 
-<div style="width: 64px;">
-	<img src="{{ site.baseurl }}/assets/popcorn.svg" alt="Instant Popcorn icon">
+<div id="home-banner">
+	<img id="home-logo" src="{{ site.baseurl }}/assets/popcorn.svg" alt="Instant Popcorn icon">
+
+	<h2>Stream torrents directly from your browser</h2>
 </div>
 
-<div class="home">
+<hr>
 
-	<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/webtorrent.css">
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/webtorrent.css">
 
-	<form>
-		<label for="torrentId">Download from a magnet link: </label>
-		<input name="torrentId", placeholder="magnet:" value="magnet:?xt=urn:btih:6a9759bffd5c0af65319979fb7832189f4f3c35d&dn=sintel.mp4&tr=wss%3A%2F%2Ftracker.btorrent.xyz&tr=wss%3A%2F%2Ftracker.fastcast.nz&tr=wss%3A%2F%2Ftracker.openwebtorrent.com&tr=wss%3A%2F%2Ftracker.webtorrent.io&ws=https%3A%2F%2Fwebtorrent.io%2Ftorrents%2Fsintel-1024-surround.mp4">
-		<button type="submit">Download</button>
-	</form>
+<form>
+	<label for="torrentId">Download from a magnet link: </label>
+	<input name="torrentId", placeholder="magnet:" value="magnet:?xt=urn:btih:6a9759bffd5c0af65319979fb7832189f4f3c35d&dn=sintel.mp4&tr=wss%3A%2F%2Ftracker.btorrent.xyz&tr=wss%3A%2F%2Ftracker.fastcast.nz&tr=wss%3A%2F%2Ftracker.openwebtorrent.com&tr=wss%3A%2F%2Ftracker.webtorrent.io&ws=https%3A%2F%2Fwebtorrent.io%2Ftorrents%2Fsintel-1024-surround.mp4">
+	<button type="submit">Download</button>
+</form>
 
-	<h2>Log</h2>
-	<div class="log"></div>
+<h2>Log</h2>
+<div class="log"></div>
 
 
 
-	<div id="hero">
-		<div id="output">
-			<div id="progressBar"></div>
-			<!-- The video player will be added here -->
+<div id="hero">
+	<div id="output">
+		<div id="progressBar"></div>
+		<!-- The video player will be added here -->
+	</div>
+	<!-- Statistics -->
+	<div id="status">
+		<div>
+			<span class="show-leech">Downloading </span>
+			<span class="show-seed">Seeding </span>
+			<code>
+				<!-- Informative link to the torrent file -->
+				<a id="torrentLink" href="https://webtorrent.io/torrents/sintel.torrent">sintel.torrent</a>
+			</code>
+			<span class="show-leech"> from </span>
+			<span class="show-seed"> to </span>
+			<code id="numPeers">0 peers</code>.
 		</div>
-		<!-- Statistics -->
-		<div id="status">
-			<div>
-				<span class="show-leech">Downloading </span>
-				<span class="show-seed">Seeding </span>
-				<code>
-					<!-- Informative link to the torrent file -->
-					<a id="torrentLink" href="https://webtorrent.io/torrents/sintel.torrent">sintel.torrent</a>
-				</code>
-				<span class="show-leech"> from </span>
-				<span class="show-seed"> to </span>
-				<code id="numPeers">0 peers</code>.
-			</div>
-			<div>
-				<code id="downloaded"></code>
-				of <code id="total"></code>
-				— <span id="remaining"></span><br/>
-				&#x2198;<code id="downloadSpeed">0 b/s</code>
-				/ &#x2197;<code id="uploadSpeed">0 b/s</code>
-			</div>
+		<div>
+			<code id="downloaded"></code>
+			of <code id="total"></code>
+			— <span id="remaining"></span><br/>
+			&#x2198;<code id="downloadSpeed">0 b/s</code>
+			/ &#x2197;<code id="uploadSpeed">0 b/s</code>
 		</div>
 	</div>
 </div>

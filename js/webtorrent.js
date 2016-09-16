@@ -1,9 +1,9 @@
 //var torrentId = 'https://webtorrent.io/torrents/sintel.torrent'
-var torrentId = 'magnet:?xt=urn:btih:b1fd382624649108fa879fe1b026a50cf6727c6f&dn=readme.txt&tr=udp%3A%2F%2Fexodus.desync.com%3A6969&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=wss%3A%2F%2Ftracker.btorrent.xyz&tr=wss%3A%2F%2Ftracker.fastcast.nz&tr=wss%3A%2F%2Ftracker.openwebtorrent.com&tr=wss%3A%2F%2Ftracker.webtorrent.io'
+//var torrentId = 'magnet:?xt=urn:btih:b1fd382624649108fa879fe1b026a50cf6727c6f&dn=readme.txt&tr=udp%3A%2F%2Fexodus.desync.com%3A6969&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=wss%3A%2F%2Ftracker.btorrent.xyz&tr=wss%3A%2F%2Ftracker.fastcast.nz&tr=wss%3A%2F%2Ftracker.openwebtorrent.com&tr=wss%3A%2F%2Ftracker.webtorrent.io'
 
 var client = new WebTorrent()
 
-client.on('error', function (err) {
+client.on('error', function(err) {
 	console.error('ERROR: ' + err.message)
 })
 
@@ -13,23 +13,23 @@ function log (str) {
 	$('.log').append(p)
 }
 
-$('form').submit(function (e) {
+$('form').submit(function(e) {
 	e.preventDefault() // Prevent page refresh
 
-	var torrentId = document.querySelector('form input[name=torrentId]').value
+	var torrentId = $('form input[name=torrentId]').val()
 	log('Adding ' + torrentId)
 	client.add(torrentId, onTorrent)
 })
 
 // HTML elements
-var $body = document.body
-var $progressBar = document.querySelector('#progressBar')
-var $numPeers = document.querySelector('#numPeers')
-var $downloaded = document.querySelector('#downloaded')
-var $total = document.querySelector('#total')
-var $remaining = document.querySelector('#remaining')
-var $uploadSpeed = document.querySelector('#uploadSpeed')
-var $downloadSpeed = document.querySelector('#downloadSpeed')
+var $body = $('body')
+var $progressBar = $('#progressBar')
+var $numPeers = $('#numPeers')
+var $downloaded = $('#downloaded')
+var $total = $('#total')
+var $remaining = $('#remaining')
+var $uploadSpeed = $('#uploadSpeed')
+var $downloadSpeed = $('#downloadSpeed')
 
 // Download the torrent
 client.add(torrentId, onTorrent)
@@ -76,7 +76,7 @@ function onTorrent(torrent) {
 
 		// Progress
 		var percent = Math.round(torrent.progress * 100 * 100) / 100
-		$progressBar.style.width = percent + '%'
+		$progressBar.width(percent + '%')
 		$downloaded.innerHTML = prettyBytes(torrent.downloaded)
 		$total.innerHTML = prettyBytes(torrent.length)
 

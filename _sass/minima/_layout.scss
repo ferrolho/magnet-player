@@ -2,8 +2,9 @@
  * Site header
  */
 .site-header {
-    border-top: 5px solid $grey-color-dark;
-    border-bottom: 1px solid $grey-color-light;
+    background-color: $blue;
+    border-top: 5px solid $red-2;
+    border-bottom: 1px solid $yellow-4;
     min-height: 56px;
 
     // Positioning context for the mobile navigation icon
@@ -20,7 +21,7 @@
 
     &,
     &:visited {
-        color: $grey-color-dark;
+        color: $white;
     }
 }
 
@@ -33,7 +34,7 @@
     }
 
     .page-link {
-        color: $text-color;
+        color: $white;
         line-height: $base-line-height;
 
         // Gaps between nav items, but not on the last one
@@ -47,7 +48,7 @@
         top: 9px;
         right: $spacing-unit / 2;
         background-color: $background-color;
-        border: 1px solid $grey-color-light;
+        border: 1px solid $blue;
         border-radius: 5px;
         text-align: right;
 
@@ -61,7 +62,7 @@
             text-align: center;
 
             > svg path {
-                fill: $grey-color-dark;
+                fill: $blue;
             }
         }
 
@@ -76,6 +77,7 @@
         }
 
         .page-link {
+            color: $blue;
             display: block;
             padding: 5px 10px;
 
@@ -93,7 +95,7 @@
  * Site footer
  */
 .site-footer {
-    border-top: 1px solid $grey-color-light;
+    border-top: 1px solid $blue;
     padding: $spacing-unit 0;
 }
 
@@ -110,7 +112,7 @@
 
 .footer-col-wrapper {
     font-size: 15px;
-    color: $grey-color;
+    color: $blue;
     margin-left: -$spacing-unit / 2;
     @extend %clearfix;
 }
@@ -181,7 +183,7 @@
 
 .post-meta {
     font-size: $small-font-size;
-    color: $grey-color;
+    color: $blue;
 }
 
 .post-link {
@@ -192,46 +194,17 @@
 
 
 /**
- * Posts
+ * Custom
  */
-.post-header {
-    margin-bottom: $spacing-unit;
+.github-fork-ribbon:before {
+    background-color: $red-1;
 }
 
-.post-title {
-    font-size: 42px;
-    letter-spacing: -1px;
-    line-height: 1;
-
-    @include media-query($on-laptop) {
-        font-size: 36px;
-    }
+#home-banner {
+    text-align: center;
 }
 
-.post-content {
-    margin-bottom: $spacing-unit;
-
-    h2 {
-        font-size: 32px;
-
-        @include media-query($on-laptop) {
-            font-size: 28px;
-        }
-    }
-
-    h3 {
-        font-size: 26px;
-
-        @include media-query($on-laptop) {
-            font-size: 22px;
-        }
-    }
-
-    h4 {
-        font-size: 20px;
-
-        @include media-query($on-laptop) {
-            font-size: 18px;
-        }
-    }
+#home-logo {
+    margin-bottom: 4%;
+    width: 30%;
 }

@@ -3,30 +3,35 @@
 ---
 @charset "utf-8";
 
-// Our variables
-$base-font-family: Asap, "Helvetica Neue", Helvetica, Arial, sans-serif;
-$base-font-size:   16px;
-$base-font-weight: 400;
-$small-font-size:  $base-font-size * 0.875;
-$base-line-height: 1.5;
+// Define defaults for each variable.
+$base-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$base-font-size:   16px !default;
+$base-font-weight: 400 !default;
+$small-font-size:  $base-font-size * 0.875 !default;
+$base-line-height: 1.5 !default;
 
-$spacing-unit:     30px;
+$spacing-unit:     30px !default;
 
-$text-color:       #111;
-$background-color: #fdfdfd;
-$brand-color:      #2a7ae2;
+// theme colors (taken from the icon)
+$blue:     #334d5c;
+$white:    #e5ddd7;
+$red-1:    #ea4949;
+$red-2:    #bf1717;
+$yellow-1: #f9e595;
+$yellow-2: #efd35b;
+$yellow-3: #edc92f;
+$yellow-4: #e2ba13;
 
-$grey-color:       #828282;
-$grey-color-light: lighten($grey-color, 40%);
-$grey-color-dark:  darken($grey-color, 25%);
+$text-color:       $blue    !default;
+$background-color: $yellow-2 !default;
+$brand-color:      $red-1    !default;
 
 // Width of the content area
-$content-width:    800px;
+$content-width:    800px !default;
 
-$on-palm:          600px;
-$on-laptop:        800px;
+$on-palm:          600px !default;
+$on-laptop:        800px !default;
 
-// Minima also includes a mixin for defining media queries.
 // Use media queries like this:
 // @include media-query($on-palm) {
 //     .wrapper {
@@ -34,6 +39,15 @@ $on-laptop:        800px;
 //         padding-left: $spacing-unit / 2;
 //     }
 // }
+@mixin media-query($device) {
+    @media screen and (max-width: $device) {
+        @content;
+    }
+}
 
-// Import partials from the `minima` theme.
-@import "minima";
+// Import partials.
+@import
+  "minima/base",
+  "minima/layout",
+  "minima/syntax-highlighting"
+;
