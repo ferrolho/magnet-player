@@ -196,8 +196,14 @@
 /**
 * Custom
 */
-.github-fork-ribbon:before {
-    background-color: $red-1;
+.github-fork-ribbon {
+    &:before {
+        background-color: $red-1;
+    }
+
+    @include media-query($on-palm) {
+        display: none;
+    }
 }
 
 #home-banner {
