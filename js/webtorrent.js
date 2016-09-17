@@ -1,3 +1,4 @@
+var moment = require('moment')
 var prettyBytes = require('pretty-bytes')
 
 // HTML elements

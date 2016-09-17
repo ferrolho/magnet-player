@@ -11,6 +11,7 @@
     "url": "https://github.com/ferrolho/instant-popcorn/issues"
   },
   "dependencies": {
+    "moment": "^2.15.0",
     "pretty-bytes": "^4.0.2"
   },
   "homepage": "https://ferrolho.github.io/instant-popcorn/",
