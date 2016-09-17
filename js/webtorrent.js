@@ -1,4 +1,3 @@
-
 // HTML elements
 var $body = $('body')
 var $progressBar = $('#progressBar')
@@ -15,31 +14,33 @@ client.on('error', function(err) {
 	console.error('ERROR: ' + err.message)
 })
 
+// Download by form input
 $('form').submit(function(e) {
 	e.preventDefault() // Prevent page refresh
 
 	var torrentId = $('form input[name=torrentId]').val()
 
-	if (torrentId.length > 0) {
-		console.log('Adding ' + torrentId)
-		client.add(torrentId, onTorrent)
-	}
+	if (torrentId.length > 0)
+		downloadTorrent(torrentId)
 })
 
-// Human readable bytes util
-function prettyBytes(num) {
-	var exponent, unit, neg = num < 0, units = ['B', 'kB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
-	if (neg)
-		num = -num
-	if (num < 1) return (neg ? '-' : '') + num + ' B'
-		exponent = Math.min(Math.floor(Math.log(num) / Math.log(1000)), units.length - 1)
-	num = Number((num / Math.pow(1000, exponent)).toFixed(2))
-	unit = units[exponent]
-	return (neg ? '-' : '') + num + ' ' + unit
+// Download by URL hash
+onHashChange()
+window.addEventListener('hashchange', onHashChange)
+function onHashChange () {
+	var hash = decodeURIComponent(window.location.hash.substring(1)).trim()
+	if (hash !== '') downloadTorrent(hash)
 }
 
+function downloadTorrent(torrentId) {
+	console.log('Downloading torrent from ' + torrentId)
+	client.add(torrentId, onTorrent)
+}
 
 function onTorrent(torrent) {
+	torrent.on('warning', console.log)
+	torrent.on('error', console.log)
+
 	console.log('Got torrent metadata!')
 	console.log('Torrent info hash: ' + torrent.infoHash + ' ' +
 		'<a href="' + torrent.magnetURI + '" target="_blank">[Magnet URI]</a> ' +
@@ -96,4 +97,16 @@ function onTorrent(torrent) {
 		$body.className += ' is-seed'
 		onProgress()
 	}
+}
+
+// Human readable bytes util
+function prettyBytes(num) {
+	var exponent, unit, neg = num < 0, units = ['B', 'kB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
+	if (neg)
+		num = -num
+	if (num < 1) return (neg ? '-' : '') + num + ' B'
+		exponent = Math.min(Math.floor(Math.log(num) / Math.log(1000)), units.length - 1)
+	num = Number((num / Math.pow(1000, exponent)).toFixed(2))
+	unit = units[exponent]
+	return (neg ? '-' : '') + num + ' ' + unit
 }

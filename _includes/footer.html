@@ -9,7 +9,7 @@
         <ul class="contact-list">
           <li>
             {% if site.author %}
-              {{ site.author | escape }}
+              © 2016 {{ site.author | escape }}
             {% else %}
               {{ site.title | escape }}
             {% endif %}
@@ -38,6 +38,8 @@
         <p>{{ site.description | escape }}</p>
       </div>
     </div>
+
+    <p><small>Powered by <a href="http://webtorrent.io" target="_blank">WebTorrent</a>. Works in Chrome, Firefox, and Opera. Source code available on <a href="https://github.com/ferrolho/instant-popcorn" target="_blank">GitHub</a>, 100% open source, free software.</small></p>
 
   </div>
 
