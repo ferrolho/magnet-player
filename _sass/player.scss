@@ -1,0 +1,37 @@
+#hero {
+	background-color: $blue;
+	display: none;
+	text-align: center;
+}
+
+#output video {
+	width: 100%;
+}
+
+#progressBar {
+	height: 5px;
+	width: 0%;
+	background-color: $red-1;
+	transition: width .4s ease-in-out;
+}
+
+#status {
+	color: $white;
+	padding: $spacing-unit / 2;
+
+	div {
+		margin-bottom: $spacing-unit / 2;
+	}
+}
+
+.show-seed {
+	display: none;
+}
+
+#status code {
+	color: $blue;
+}
+
+.is-seed #hero {
+	transition: .5s .5s background-color ease-in-out;
+}

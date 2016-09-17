@@ -1,6 +1,6 @@
 /**
- * Site header
- */
+* Site header
+*/
 .site-header {
     background-color: $blue;
     border-top: 5px solid $red-2;
@@ -92,10 +92,10 @@
 
 
 /**
- * Site footer
- */
+* Site footer
+*/
 .site-footer {
-    border-top: 1px solid $blue;
+    border-top: 1px solid $yellow-4;
     padding: $spacing-unit 0;
 }
 
@@ -162,8 +162,8 @@
 
 
 /**
- * Page content
- */
+* Page content
+*/
 .page-content {
     padding: $spacing-unit 0;
 }
@@ -194,8 +194,8 @@
 
 
 /**
- * Custom
- */
+* Custom
+*/
 .github-fork-ribbon:before {
     background-color: $red-1;
 }
@@ -207,4 +207,31 @@
 #home-logo {
     margin-bottom: 4%;
     width: 30%;
+}
+
+
+
+/**
+* Input
+*/
+#magnet-input {
+    margin-bottom: $spacing-unit / 2;
+    text-align: center;
+
+    input,
+    button {
+        border: 1px solid $red-2;
+    }
+
+    input {
+        outline: none;
+        padding: 12px;
+    }
+
+    button[type=submit] {
+        background-color: $red-1;
+        color: $yellow-1;
+        cursor: pointer;
+        padding: 12px 20px;
+    }
 }

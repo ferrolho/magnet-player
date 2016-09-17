@@ -10,53 +10,56 @@ layout: default
 
 <hr>
 
-<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/webtorrent.css">
-
-<form>
-	<label for="torrentId">Download from a magnet link: </label>
-	<input name="torrentId", placeholder="magnet:" value="magnet:?xt=urn:btih:6a9759bffd5c0af65319979fb7832189f4f3c35d&dn=sintel.mp4&tr=wss%3A%2F%2Ftracker.btorrent.xyz&tr=wss%3A%2F%2Ftracker.fastcast.nz&tr=wss%3A%2F%2Ftracker.openwebtorrent.com&tr=wss%3A%2F%2Ftracker.webtorrent.io&ws=https%3A%2F%2Fwebtorrent.io%2Ftorrents%2Fsintel-1024-surround.mp4">
-	<button type="submit">Download</button>
+<form id="magnet-input">
+	<input name="torrentId" placeholder="magnet:"><button type="submit">Play</button>
 </form>
-
-<h2>Log</h2>
-<div class="log"></div>
-
-
 
 <div id="hero">
 	<div id="output">
 		<div id="progressBar"></div>
 		<!-- The video player will be added here -->
 	</div>
+
 	<!-- Statistics -->
 	<div id="status">
 		<div>
 			<span class="show-leech">Downloading </span>
 			<span class="show-seed">Seeding </span>
-			<code>
-				<!-- Informative link to the torrent file -->
-				<a id="torrentLink" href="https://webtorrent.io/torrents/sintel.torrent">sintel.torrent</a>
-			</code>
 			<span class="show-leech"> from </span>
 			<span class="show-seed"> to </span>
-			<code id="numPeers">0 peers</code>.
+			<code id="numPeers">0 peers</code>
 		</div>
+
 		<div>
-			<code id="downloaded"></code>
-			of <code id="total"></code>
-			— <span id="remaining"></span><br/>
-			&#x2198;<code id="downloadSpeed">0 b/s</code>
-			/ &#x2197;<code id="uploadSpeed">0 b/s</code>
+			<code id="downloaded"></code> of <code id="total"></code> - <span id="remaining"></span>
+		</div>
+
+		<div>
+			&#x2198;<code id="downloadSpeed">0 b/s</code>/ &#x2197;<code id="uploadSpeed">0 b/s</code>
 		</div>
 	</div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+<hr>
 
-<!-- Include the latest version of WebTorrent -->
-<script src="https://cdn.jsdelivr.net/webtorrent/latest/webtorrent.min.js"></script>
+<blockquote>
+	<p>What should I write in the input box above?</p>
+</blockquote>
 
-<!-- Moment is used to show human readable remaining time -->
-<script src="http://momentjs.com/downloads/moment.min.js"></script>
+<h4>Find a torrent you want to watch, then copy-paste to the input box one of the following:</h4>
 
-<script src="{{ site.baseurl }}/js/webtorrent.js"></script>
+<ul>
+	<li>magnet uri (string)</li>
+	<li>torrent file (buffer)</li>
+	<li>info hash (hex string or buffer)</li>
+	<li>parsed torrent (from parse-torrent)</li>
+	<li>http/https url to a torrent file (string)</li>
+</ul>
+
+<blockquote>
+	<p>Can you give an example?</p>
+</blockquote>
+
+<h4>Sure! Try <em>copy-pasting</em> this https url of a torrent to the input box:</h4>
+
+<code>https://webtorrent.io/torrents/sintel.torrent</code>
