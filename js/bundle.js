@@ -16,6 +16,7 @@ function fitMagnetInput() {
 }
 
 },{"./webtorrent.js":2}],2:[function(require,module,exports){
+(function (global){
 var moment = require('moment')
 var prettyBytes = require('pretty-bytes')
 
@@ -28,6 +29,26 @@ var $total = $('#total')
 var $remaining = $('#remaining')
 var $uploadSpeed = $('#uploadSpeed')
 var $downloadSpeed = $('#downloadSpeed')
+
+var announceList = [
+['udp://tracker.openbittorrent.com:80'],
+['udp://tracker.internetwarriors.net:1337'],
+['udp://tracker.leechers-paradise.org:6969'],
+['udp://tracker.coppersurfer.tk:6969'],
+['udp://exodus.desync.com:6969'],
+['wss://tracker.webtorrent.io'],
+['wss://tracker.btorrent.xyz'],
+['wss://tracker.openwebtorrent.com'],
+['wss://tracker.fastcast.nz']
+]
+
+global.WEBTORRENT_ANNOUNCE = announceList
+.map(function (arr) {
+	return arr[0]
+})
+.filter(function (url) {
+	return url.indexOf('wss://') === 0 || url.indexOf('ws://') === 0
+})
 
 var client = new WebTorrent()
 
@@ -120,6 +141,7 @@ function onTorrent(torrent) {
 	}
 }
 
+}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"moment":3,"pretty-bytes":4}],3:[function(require,module,exports){
 //! moment.js
 //! version : 2.15.0
