@@ -1,0 +1,24 @@
+{
+  "name": "Instant Popcorn",
+  "description": "Video streaming directly from your browser",
+  "version": "1.0.0",
+  "author": {
+    "name": "Henrique Ferrolho",
+    "email": "henrique.ferrolho@gmail.com",
+    "url": "http://ferrolho.github.io/"
+  },
+  "bugs": {
+    "url": "https://github.com/ferrolho/instant-popcorn/issues"
+  },
+  "dependencies": {
+    "pretty-bytes": "^4.0.2"
+  },
+  "homepage": "https://ferrolho.github.io/instant-popcorn/",
+  "keywords": [
+    "data channel",
+    "file transfer",
+    "p2p",
+    "webrtc"
+  ],
+  "license": "MIT"
+}

@@ -1,3 +1,5 @@
+require('./webtorrent.js');
+
 $(window).bind("resize", function() {
 	fitMagnetInput();
 });
