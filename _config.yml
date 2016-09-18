@@ -13,12 +13,12 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Instant Popcorn
+title: Magnet Player
 author: Henrique Ferrolho
 email: henrique.ferrolho@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
   A place for streaming torrents directly from your browser.
-baseurl: "/instant-popcorn" # the subpath of your site, e.g. /blog
+baseurl: "/magnet-player" # the subpath of your site, e.g. /blog
 url: "http://ferrolho.github.io" # the base hostname & protocol for your site
 twitter_username: hferrolho
 github_username:  ferrolho

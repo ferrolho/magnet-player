@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-**Instant Popcorn** is a site where anyone can stream torrents directly from their browser.
+**Magnet Player** is a site where anyone can stream torrents directly from their browser.
 
 It uses **[WebTorrent](https://webtorrent.io/)** - the first torrent client that works in the browser. **WebTorrent** uses **[WebRTC](https://webrtc.org/)** for true peer-to-peer transport. No browser plugin, extension, or installation is required.
 

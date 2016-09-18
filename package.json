@@ -1,5 +1,5 @@
 {
-  "name": "Instant Popcorn",
+  "name": "Magnet Player",
   "description": "Video streaming directly from your browser",
   "version": "1.0.0",
   "author": {
@@ -8,13 +8,13 @@
     "url": "http://ferrolho.github.io/"
   },
   "bugs": {
-    "url": "https://github.com/ferrolho/instant-popcorn/issues"
+    "url": "https://github.com/ferrolho/magnet-player/issues"
   },
   "dependencies": {
     "moment": "^2.15.0",
     "pretty-bytes": "^4.0.2"
   },
-  "homepage": "https://ferrolho.github.io/instant-popcorn/",
+  "homepage": "https://ferrolho.github.io/magnet-player/",
   "keywords": [
     "data channel",
     "file transfer",
