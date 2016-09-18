@@ -19,8 +19,16 @@
 	color: $white;
 	padding: $spacing-unit / 2;
 
-	div {
+	> div {
 		margin-bottom: $spacing-unit / 2;
+	}
+
+	> div:first-child {
+		overflow-x: auto;
+	}
+
+	.tooltip {
+		margin: initial;
 	}
 }
 

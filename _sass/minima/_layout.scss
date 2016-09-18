@@ -256,10 +256,6 @@ input {
     width: 15px;
 }
 
-.tooltip.top {
-    margin-top: 15px;
-}
-
 #share-clipboard {
     p {
         margin-bottom: 0;
@@ -267,11 +263,13 @@ input {
 
     input,
     button {
+        background-color: $white;
         border: 1px solid $blue;
         padding: 8px;
     }
 
     button {
+        background-color: $yellow-1;
         margin-left: -1px;
     }
 }
