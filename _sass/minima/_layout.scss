@@ -218,8 +218,13 @@
 
 
 /**
-* Input
+* Inputs
 */
+
+input {
+    outline: none;
+}
+
 #magnet-input {
     margin-bottom: $spacing-unit / 2;
     text-align: center;
@@ -230,14 +235,43 @@
     }
 
     input {
-        outline: none;
         padding: 12px;
     }
 
-    button[type=submit] {
+    button {
         background-color: $red-1;
         color: $yellow-1;
-        cursor: pointer;
         padding: 12px 20px;
+        margin-left: -1px;
+    }
+}
+
+
+
+/**
+* Clipboard.js
+*/
+.clippy {
+    margin-top: -4px;
+    width: 15px;
+}
+
+.tooltip.top {
+    margin-top: 15px;
+}
+
+#share-clipboard {
+    p {
+        margin-bottom: 0;
+    }
+
+    input,
+    button {
+        border: 1px solid $blue;
+        padding: 8px;
+    }
+
+    button {
+        margin-left: -1px;
     }
 }

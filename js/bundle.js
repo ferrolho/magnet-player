@@ -1,12 +1,24 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 require('./webtorrent.js');
 
+var clipboard = new Clipboard('#share-url-btn');
+clipboard.on('success', function (e) {
+	$('#share-url-btn').attr('title', 'Copied!').tooltip('fixTitle').tooltip('show');
+	e.clearSelection();
+});
+
 $(window).bind("resize", function() {
 	fitMagnetInput();
 });
 
 $(document).ready(function() {
-	fitMagnetInput(); 
+	$('#share-url').val(window.location.href);
+	$('[data-toggle="tooltip"]').tooltip();
+	$('#share-url-btn').mouseleave(function () {
+		$('#share-url-btn').attr('title', 'Copy to clipboard').tooltip('fixTitle');
+	});
+
+	fitMagnetInput();
 });
 
 function fitMagnetInput() {
@@ -85,9 +97,6 @@ function onTorrent(torrent) {
 	torrent.on('error', console.log)
 
 	console.log('Got torrent metadata!')
-	console.log('Torrent info hash: ' + torrent.infoHash + ' ' +
-		'<a href="' + torrent.magnetURI + '" target="_blank">[Magnet URI]</a> ' +
-		'<a href="' + torrent.torrentFileBlobURL + '" target="_blank" download="' + torrent.name + '.torrent">[Download .torrent]</a>')
 
 	// Find largest file
 	var largestFile = torrent.files[0]
@@ -96,7 +105,11 @@ function onTorrent(torrent) {
 			largestFile = torrent.files[i]
 	}
 
+	// Display name of the file being streamed
 	$streamedFileName.html(largestFile.name)
+
+	// Update clipboard share url
+	$('#share-url').val('https://ferrolho.github.io/magnet-player/#' + torrent.infoHash);
 
 	// Stream the file in the browser
 	largestFile.appendTo('#output')

@@ -66,9 +66,6 @@ function onTorrent(torrent) {
 	torrent.on('error', console.log)
 
 	console.log('Got torrent metadata!')
-	console.log('Torrent info hash: ' + torrent.infoHash + ' ' +
-		'<a href="' + torrent.magnetURI + '" target="_blank">[Magnet URI]</a> ' +
-		'<a href="' + torrent.torrentFileBlobURL + '" target="_blank" download="' + torrent.name + '.torrent">[Download .torrent]</a>')
 
 	// Find largest file
 	var largestFile = torrent.files[0]
@@ -77,7 +74,11 @@ function onTorrent(torrent) {
 			largestFile = torrent.files[i]
 	}
 
+	// Display name of the file being streamed
 	$streamedFileName.html(largestFile.name)
+
+	// Update clipboard share url
+	$('#share-url').val('https://ferrolho.github.io/magnet-player/#' + torrent.infoHash);
 
 	// Stream the file in the browser
 	largestFile.appendTo('#output')
