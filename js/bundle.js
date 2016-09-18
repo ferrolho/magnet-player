@@ -23,6 +23,7 @@ var prettyBytes = require('pretty-bytes')
 // HTML elements
 var $body = $('body')
 var $progressBar = $('#progressBar')
+var $streamedFileName = $('#streamedFileName')
 var $numPeers = $('#numPeers')
 var $downloaded = $('#downloaded')
 var $total = $('#total')
@@ -95,6 +96,8 @@ function onTorrent(torrent) {
 			largestFile = torrent.files[i]
 	}
 
+	$streamedFileName.html(largestFile.name)
+
 	// Stream the file in the browser
 	largestFile.appendTo('#output')
 
@@ -136,7 +139,7 @@ function onTorrent(torrent) {
 	}
 
 	function onDone () {
-		$body.className += ' is-seed'
+		$body.addClass('is-seed')
 		onProgress()
 	}
 }

@@ -24,12 +24,20 @@
 	}
 }
 
-.show-seed {
+#status code {
+	color: $blue;
+}
+
+body.is-seed .show-seed {
+	display: inline;
+}
+
+body.is-seed .show-leech {
 	display: none;
 }
 
-#status code {
-	color: $blue;
+.show-seed {
+	display: none;
 }
 
 .is-seed #hero {

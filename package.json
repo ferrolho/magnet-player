@@ -11,6 +11,7 @@
     "url": "https://github.com/ferrolho/magnet-player/issues"
   },
   "dependencies": {
+    "clipboard": "^1.5.12",
     "moment": "^2.15.0",
     "pretty-bytes": "^4.0.2"
   },
