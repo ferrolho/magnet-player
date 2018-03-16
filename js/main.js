@@ -6,11 +6,11 @@ clipboard.on('success', function (e) {
 	e.clearSelection();
 });
 
-$(window).bind("resize", function() {
+$(window).bind("resize", function () {
 	fitMagnetInput();
 });
 
-$(document).ready(function() {
+$(document).ready(function () {
 	$('#share-url').val(window.location.href);
 	$('[data-toggle="tooltip"]').tooltip();
 	$('#share-url-btn').mouseleave(function () {
@@ -18,6 +18,17 @@ $(document).ready(function() {
 	});
 
 	fitMagnetInput();
+
+	new KudosPlease({
+		el: '.kudos',
+		duration: 1500,
+		persistent: true,
+		status: {
+			alpha: 'fontelico-emo-shoot',
+			beta: 'fontelico-emo-shoot',
+			gamma: 'fontelico-emo-beer'
+		}
+	});
 });
 
 function fitMagnetInput() {
