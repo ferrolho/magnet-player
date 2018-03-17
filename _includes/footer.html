@@ -9,7 +9,7 @@
         <ul class="contact-list">
           <li>
             {% if site.author %}
-              © 2016 {{ site.author | escape }}
+              © {{ 'now' | date: "%Y" }} {{ site.author | escape }}
             {% else %}
               {{ site.title | escape }}
             {% endif %}
